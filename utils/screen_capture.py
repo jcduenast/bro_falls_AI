@@ -1,6 +1,6 @@
 import cv2
-import pyautogui
-from PIL import ImageGrab
+# import pyautogui
+# from PIL import ImageGrab
 import time
 import numpy as np
 import imageio
