@@ -34,7 +34,7 @@ print("Press 'G' to start recording.\nPress 'H' to stop.\nPress 'J' to end the p
 while running:
     key_pressed = key_check()
     if capture:
-        frame = grab_screen([560, 240, 800, 600]) #grab_screen([0, 30, 1024, 768])
+        frame = grab_screen([960-400, 550-300, 960+400, 550+300]) #grab_screen([0, 30, 1024, 768])
         frame_gray = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
         # frame_canny = cv2.Canny(frame_gray, 100, 200)
         data_img.append(frame_gray)
@@ -55,7 +55,8 @@ while running:
     else:
         if 'G' in key_pressed:
             if save_png:
-                while os.path.isdir('../bro_falls_AI_data/training/data_{:0>4}'.format(data_id)):
+                while os.path.isdir('../bro_falls_AI_data/training/data_{:0>4}'.format(data_id)) or \
+                        os.path.exists(training_data_path+'data_{:0>4}_input.pickle'.format(data_id)):
                     data_id += 1
                 os.makedirs('../bro_falls_AI_data/training/data_{:0>4}'.format(data_id))
             capture = True
