@@ -52,6 +52,8 @@ while running:
                 pickle.dump(data_input, f)
             np.save(training_data_path+'data_{:0>4}_img'.format(data_id), np.array(data_img))
             print('data_{:0>4} saved'.format(data_id))
+            data_img = []
+            data_input = []
     else:
         if 'G' in key_pressed:
             if save_png:
